@@ -79,4 +79,4 @@ plt.show()
     #nested loop on second index running from 0-66
     #somehow put each resulting (x,y,z) coordinate for each of the DOMs into its own array
 #then use the array of (x,y,z) coords to plot all points
-#
+#this is a test new line
