@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[10]:
 
 
 import sys, os
@@ -35,34 +35,43 @@ for om, geo_info in om_geometry:
 #Can't find a way to plot my dom_coord_array as it is, i think i just need to use the separate x, y, z arrays
 
 #creates empty array to place dom_x_positions, dom_y_positions, dom_z_positions in 
-dom_coord_array = []
+#dom_coord_array = []
 
-count = 0
-for string_num_x in range(len(dom_x_positions)):
-    for dom_num_x in range(len(dom_x_positions[string_num_x])):
-        dom_coord_array.insert(count,[dom_x_positions[string_num_x][dom_num_x]])
-        count = count + 1
+#count = 0
+#for string_num_x in range(len(dom_x_positions)):
+#    for dom_num_x in range(len(dom_x_positions[string_num_x])):
+#        dom_coord_array.insert(count,[dom_x_positions[string_num_x][dom_num_x]])
+#        count = count + 1
         
-count = 0
-for string_num_y in range(len(dom_y_positions)):
-    for dom_num_y in range(len(dom_y_positions[string_num_y])):
-        #goes into each nested list then appends the corresponding y value
-        dom_coord_array[count].append(dom_y_positions[string_num_y][dom_num_y])
-        count = count + 1
+#count = 0
+#for string_num_y in range(len(dom_y_positions)):
+#    for dom_num_y in range(len(dom_y_positions[string_num_y])):
+#        #goes into each nested list then appends the corresponding y value
+#        dom_coord_array[count].append(dom_y_positions[string_num_y][dom_num_y])
+#        count = count + 1
 
-count = 0
-for string_num_z in range(len(dom_z_positions)):
-    for dom_num_z in range(len(dom_z_positions[string_num_z])):
-        dom_coord_array[count].append(dom_z_positions[string_num_z][dom_num_z])
-        count = count + 1
+#count = 0
+#for string_num_z in range(len(dom_z_positions)):
+#    for dom_num_z in range(len(dom_z_positions[string_num_z])):
+#        dom_coord_array[count].append(dom_z_positions[string_num_z][dom_num_z])
+#        count = count + 1
 #print(dom_coord_array)
 
 ax = plt.axes(projection='3d')
 ax.set_xlabel('X-axis (m)')
 ax.set_ylabel('Y-axis (m)')
 ax.set_zlabel('Z-axis (m)')
-ax.scatter3D(dom_x_positions, dom_y_positions, dom_z_positions, c='orchid', depthshade=False)
+ax.scatter3D(dom_x_positions, dom_y_positions, dom_z_positions, c='blue', depthshade=True)
 plt.show()
+
+#IceCube positions without icetop
+ax = plt.axes(projection='3d')
+ax.set_xlabel('X-axis (m)')
+ax.set_ylabel('Y-axis (m)')
+ax.set_zlabel('Z-axis (m)')
+ax.scatter3D(dom_x_positions[:,0:61], dom_y_positions[:,0:61], dom_z_positions[:,0:61], c='red', depthshade=True)
+plt.show()
+
 
 ax = plt.axes()
 ax.set_xlabel('X-axis (m)')
@@ -70,8 +79,15 @@ ax.set_ylabel('Y-axis (m)')
 ax.scatter(dom_x_positions, dom_y_positions, c='orchid')
 plt.show()
 
+#IceCube positions without icetop
+ax = plt.axes()
+ax.set_xlabel('X-axis (m)')
+ax.set_ylabel('Y-axis (m)')
+ax.scatter(dom_x_positions[:,0:61], dom_y_positions[:,0:61], c='green')
+plt.show()
 
-# In[ ]:
+
+# In[2]:
 
 
 # need to step through each x,y,z position string number, then run through each DOM number [0,0-66]
@@ -79,4 +95,23 @@ plt.show()
     #nested loop on second index running from 0-66
     #somehow put each resulting (x,y,z) coordinate for each of the DOMs into its own array
 #then use the array of (x,y,z) coords to plot all points
-#this is a test new line
+
+
+# In[8]:
+
+
+count = 0
+dom_coord_array = []
+for string_num_x in range(len(dom_x_positions)):
+    for dom_num_x in range(len(dom_x_positions[string_num_x])):
+        dom_coord_array.insert(count,[dom_x_positions[string_num_x][dom_num_x]])
+        count = count + 1
+#print(dom_coord_array) 
+print(len(dom_coord_array))
+
+
+# In[ ]:
+
+
+
+
