@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[10]:
+# In[40]:
 
 
 import sys, os
@@ -61,6 +61,8 @@ ax = plt.axes(projection='3d')
 ax.set_xlabel('X-axis (m)')
 ax.set_ylabel('Y-axis (m)')
 ax.set_zlabel('Z-axis (m)')
+ax.set_title("3D IceCube Geometry")
+ax.dist = 11
 ax.scatter3D(dom_x_positions, dom_y_positions, dom_z_positions, c='blue', depthshade=True)
 plt.show()
 
@@ -69,6 +71,8 @@ ax = plt.axes(projection='3d')
 ax.set_xlabel('X-axis (m)')
 ax.set_ylabel('Y-axis (m)')
 ax.set_zlabel('Z-axis (m)')
+ax.set_title("3D IceCube Geometry without Icetop") 
+ax.dist = 11
 ax.scatter3D(dom_x_positions[:,0:61], dom_y_positions[:,0:61], dom_z_positions[:,0:61], c='red', depthshade=True)
 plt.show()
 
@@ -76,6 +80,7 @@ plt.show()
 ax = plt.axes()
 ax.set_xlabel('X-axis (m)')
 ax.set_ylabel('Y-axis (m)')
+ax.set_title("2D IceCube Geometry")
 ax.scatter(dom_x_positions, dom_y_positions, c='orchid')
 plt.show()
 
@@ -83,11 +88,12 @@ plt.show()
 ax = plt.axes()
 ax.set_xlabel('X-axis (m)')
 ax.set_ylabel('Y-axis (m)')
+ax.set_title("2D IceCube Geometry without Icetop")
 ax.scatter(dom_x_positions[:,0:61], dom_y_positions[:,0:61], c='green')
 plt.show()
 
 
-# In[2]:
+# In[3]:
 
 
 # need to step through each x,y,z position string number, then run through each DOM number [0,0-66]
@@ -97,7 +103,7 @@ plt.show()
 #then use the array of (x,y,z) coords to plot all points
 
 
-# In[8]:
+# In[4]:
 
 
 count = 0
