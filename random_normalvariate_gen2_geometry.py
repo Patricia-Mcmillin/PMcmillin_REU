@@ -46,6 +46,41 @@ def normalvariate_random_string(coordinate_array, split):
     rand_norm_positions = np.asarray(random_list)
     return rand_norm_positions
 
+#plots the IceCube detector area boundaries
+def IC_bounds():
+    x31_x75 = np.array([dom_x_positions[31][1],dom_x_positions[75][1]])
+    y31_y75 = np.array([dom_y_positions[31][1],dom_y_positions[75][1]])
+    
+    x75_x78 = np.array([dom_x_positions[75][1],dom_x_positions[78][1]])
+    y75_y78 = np.array([dom_y_positions[75][1],dom_y_positions[78][1]])
+    
+    x78_x72 = np.array([dom_x_positions[78][1],dom_x_positions[72][1]])
+    y78_y72 = np.array([dom_y_positions[78][1],dom_y_positions[72][1]])
+    
+    x72_x74 = np.array([dom_x_positions[72][1],dom_x_positions[74][1]])
+    y72_y74 = np.array([dom_y_positions[72][1],dom_y_positions[74][1]])
+    
+    x74_x50 = np.array([dom_x_positions[74][1],dom_x_positions[50][1]])
+    y74_y50 = np.array([dom_y_positions[74][1],dom_y_positions[50][1]])
+    
+    x50_x6 = np.array([dom_x_positions[50][1],dom_x_positions[6][1]])
+    y50_y6 = np.array([dom_y_positions[50][1],dom_y_positions[6][1]])
+    
+    x6_x1 = np.array([dom_x_positions[6][1],dom_x_positions[1][1]])
+    y6_y1 = np.array([dom_y_positions[6][1],dom_y_positions[1][1]])
+    
+    x1_x31 = np.array([dom_x_positions[1][1],dom_x_positions[31][1]])
+    y1_y31 = np.array([dom_y_positions[1][1],dom_y_positions[31][1]])
+    
+    plt.plot(x31_x75, y31_y75, color='red')
+    plt.plot(x75_x78, y75_y78, color='red')
+    plt.plot(x78_x72, y78_y72, color='red')
+    plt.plot(x72_x74, y72_y74, color='red')
+    plt.plot(x74_x50, y74_y50, color='red')
+    plt.plot(x50_x6, y50_y6, color='red')
+    plt.plot(x6_x1, y6_y1, color='red')
+    plt.plot(x1_x31, y1_y31, color='red')
+
 def plot_3d_icetop(x, y, z, random_gen):
     fig = plt.figure()
     ax = plt.axes(projection='3d')
@@ -78,6 +113,7 @@ def plot_2d_icetop(x, y, random_gen):
     ax.set_xlabel('X-axis (m)')
     ax.set_ylabel('Y-axis (m)')
     ax.set_title("2D Gen2 Randomized Geometry with IceTop \n" + random_gen) 
+    IC_bounds()
     ax.scatter(x, y, s =7, c='blue')
     return fig
     
@@ -87,6 +123,7 @@ def plot_2d_no_icetop(x, y, random_gen):
     ax.set_xlabel('X-axis (m)')
     ax.set_ylabel('Y-axis (m)')
     ax.set_title("2D Gen2 Randomized Geometry without IceTop \n" + random_gen) 
+    IC_bounds()
     ax.scatter(x, y, s =7, c='green')
     return fig
 
@@ -103,7 +140,7 @@ fig4 = plot_2d_no_icetop(rand_x_positions, rand_y_positions, "using normal distr
 plt.show()
 
 
-fig1.savefig('normal_3d_icetop.png')
-fig2.savefig('normal_2d_icetop.png')
-fig3.savefig('normal_3d_no_icetop.png')
-fig4.savefig('normal_2d_no_icetop.png')
+fig1.savefig('normal_3d_icetop_2.png')
+fig2.savefig('normal_2d_icetop_2.png')
+fig3.savefig('normal_3d_no_icetop_2.png')
+fig4.savefig('normal_2d_no_icetop_2.png')
