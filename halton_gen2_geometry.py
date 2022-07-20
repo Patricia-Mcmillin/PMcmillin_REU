@@ -246,6 +246,20 @@ def halton_coords(dim, n_sample, s):
 
 x, y = halton_coords(2,21,907)
 
+with open('halton_x_coordinates.txt', 'w') as my_file:
+    for i in x:
+        np.savetxt(my_file, i)
+
+
+with open('halton_y_coordinates.txt', 'w') as my_file:
+    for i in y:
+        np.savetxt(my_file, i)
+        
+with open('coordinates_txt_files/gen2_z_coordinates2.txt', 'w') as my_file:
+    for i in gen2_dom_z_positions:
+        np.savetxt(my_file, i) 
+        
+print('array exported to file')
 fig1 = plot_3d_icetop(x, y, gen2_dom_z_positions, "using the Halton sequence ")
 
 fig2 = plot_2d_icetop(x, y, "using the Halton sequence ")

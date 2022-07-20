@@ -211,6 +211,28 @@ def chromo_spiral_coords(n_strings, theta_initial, s):
 x , y = sunflower_coords(0,21,120)
 xx, yy = chromo_spiral_coords(21, 0, 120)
 
+with open('fibonacci_m1_x_coordinates.txt', 'w') as my_file:
+    for i in x:
+        np.savetxt(my_file, i)
+
+with open('fibonacci_m1_y_coordinates.txt', 'w') as my_file:
+    for i in y:
+        np.savetxt(my_file, i)
+        
+with open('fibonacci_m2_x_coordinates.txt', 'w') as my_file:
+    for i in xx:
+        np.savetxt(my_file, i)
+
+with open('fibonacci_m2_y_coordinates.txt', 'w') as my_file:
+    for i in yy:
+        np.savetxt(my_file, i)
+
+with open('gen2_z_coordinates2.txt', 'w') as my_file:
+    for i in gen2_dom_z_positions:
+        np.savetxt(my_file, i) 
+        
+print('arrays exported to file')
+
 fig1 = plot_3d_icetop(x, y, gen2_dom_z_positions, "using the Fibonacci sequence method 1")
 
 fig2 = plot_2d_icetop(x, y, "using the Fibonacci sequence method 1")

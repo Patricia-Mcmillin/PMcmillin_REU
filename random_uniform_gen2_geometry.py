@@ -144,6 +144,19 @@ def plot_2d_no_icetop(x, y, random_gen):
 rand_x_positions = uniform_random_string(-600., 550, gen2_dom_x_positions, 67)
 rand_y_positions = uniform_random_string(-600., 550, gen2_dom_y_positions, 67)
 
+with open('random_uniform_x_coordinates2.txt', 'w') as my_file:
+    for i in rand_x_positions:
+        np.savetxt(my_file, i)
+
+with open('random_uniform_y_coordinates2.txt', 'w') as my_file:
+    for i in rand_y_positions:
+        np.savetxt(my_file, i)
+        
+with open('gen2_z_coordinates2.txt', 'w') as my_file:
+    for i in gen2_dom_z_positions:
+        np.savetxt(my_file, i) 
+        
+print('array exported to file')
 fig1 = plot_3d_icetop(rand_x_positions, rand_y_positions, gen2_dom_z_positions, "using uniform distribution")
 
 fig2 = plot_2d_icetop(rand_x_positions, rand_y_positions, "using uniform distribution")
